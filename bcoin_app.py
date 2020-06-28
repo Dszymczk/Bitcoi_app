@@ -25,7 +25,7 @@ class SeaofBTCapp(tk.Tk):
         container.grid_columnconfigure(0, weight=1)
 
         self.frames = {}
-        for F in (StartPage, PageOne, PageTwo):
+        for F in (StartPage, PageOne, PageTwo, PageThree):
             frame = F(container, self)
             self.frames[F] = frame
             frame.grid(row=0, column=0, sticky="nsew")
@@ -51,7 +51,7 @@ class StartPage(tk.Frame):
         button2.pack()
 
         button3 = ttk.Button(self, text="Graph Page",
-                             command=lambda: controller.show_frame(PageTwo))
+                             command=lambda: controller.show_frame(PageThree))
         button3.pack()
 
 
@@ -98,7 +98,7 @@ class PageThree(tk.Frame):
         a.plot([1, 2, 3, 4, 5, 6, 7, 8], [5, 6, 1, 3, 8, 9, 3, 5])
 
         canvas = FigureCanvasTkAgg(f, self)
-        canvas.show()
+        canvas.draw()
         canvas.get_tk_widget().pack(side=tk.BOTTOM, fill=tk.BOTH, expand=True)
 
         toolbar = NavigationToolbar2Tk(canvas, self)
